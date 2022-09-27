@@ -68,8 +68,8 @@
                     
                     
                     <!--  페이지 번호 Pagination  -->
-                    <div class="row float-right">
-	                    <div class="col-sm-12 col-md-7">
+                    <div class="row float-right" >
+	                    <div class="col-sm-12 col-md-7" >
 		                    <ul class="pagination">
 		                    	<c:if test="${pager.prev}">
 				    				<li class="page-item">
@@ -90,7 +90,7 @@
 	                    </div>
                     </div>
                     
-                    <form id="pagingForm" action="/board/list">
+                    <form id="pagingForm" action="/board/list" >
                     	<input type="hidden" name="pageNum" value="${pager.cri.pageNum}" />
                     	<input type="hidden" name="listQty" value="${pager.cri.listQty}" />
                     	<input type="hidden" name="sel" value="${pager.cri.sel}" />

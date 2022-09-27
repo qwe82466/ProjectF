@@ -27,7 +27,7 @@ public class Criteria { // 게시판 사용시 부수적으로 필요한 데이�
 	}
 	
 	// 검색 조건을 배열로 만들어 한번에 처리하기 위한 메서드 추가 
-	public String[] getSelArr() {
+	public String[] getSelArr() { 
 		return sel == null ? new String[] {} : sel.split("");
 	}
 	

@@ -42,6 +42,41 @@
 		 where r > (#{pageNum} - 1) * #{listQty}
 		]]>
 	</select>
+	
+		<select id="getTotalCount" resultType="int">
+		select count(*) from springBoard where 
+		<include refid="search"></include>
+		bno > 0
+	</select>
+	
+	<insert id="insert">
+		insert into springBoard(bno, title, content, writer) 
+		values(springBoard_seq.nextval, #{title}, #{content}, #{writer}) 
+	</insert>
+	
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="bno" order="BEFORE" resultType="long">
+			select springBoard_seq.nextval from dual
+		</selectKey>
+		insert into springBoard(bno, title, content, writer) 
+		values(#{bno}, #{title}, #{content}, #{writer}) 
+	</insert>
+
+	<select id="read" resultType="com.board.domain.BoardVO">
+		select * from springBoard where bno = #{bno}
+	</select>
+
+	<delete id="delete">
+		delete from springBoard where bno = #{bno}
+	</delete>
+
+	<update id="update">
+		update springBoard set 
+		title=#{title}, content=#{content}, writer=#{writer}, reg=sysdate 
+		where bno = #{bno}
+	</update>
+
+	
 
 
 </mapper>

@@ -23,8 +23,38 @@ public class BoardServiceImpl implements BoardService{
 	public List<BoardVO> getListWithPaging(Criteria cri) {
 		return mapper.getListWithPaging(cri); 
 		
+	} 
+
+	@Override
+	public int getTotal(Criteria cri) {
+		return mapper.getTotalCount(cri);
 	}
-	
+
+
+
+	@Override
+	public void register(BoardVO board) {
+		mapper.insertSelectKey(board);
+	}
+
+	@Override
+	public BoardVO get(Long bno) {
+		
+		return mapper.read(bno);
+	}
+
+	@Override
+	public boolean modify(BoardVO board) {
+		// 업데이트 결과가 1이면 true 리턴 
+		return mapper.update(board) == 1;
+	}
+
+	@Override
+	public boolean delete(Long bno) {
+		
+		return mapper.delete(bno) == 1;
+	}
+
 
 	
 }

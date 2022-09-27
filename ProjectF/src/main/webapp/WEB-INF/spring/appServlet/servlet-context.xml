@@ -39,7 +39,7 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="com.board.controller" />
-
+	<context:component-scan base-package="com.member.controller" />
 	
 	<!-- 스프링시큐리티 어노페이션을 사용하기 위한 설정  -->
 	<security:global-method-security pre-post-annotations="enabled" secured-annotations="enabled" />
